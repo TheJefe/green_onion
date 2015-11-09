@@ -23,7 +23,7 @@ describe GreenOnion::Compare do
 
     it 'should create a new file with a visual diff between two shots' do
       @comparison.visual_diff(@spec_shot1, @spec_shot2)
-      File.exist?(@diff_shot).should be_true
+      File.exist?(@diff_shot).should be true
     end
 
     it "should not throw error when dimensions are off" do

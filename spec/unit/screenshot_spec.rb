@@ -46,12 +46,12 @@ describe GreenOnion::Screenshot do
 
     it 'should snap and save screenshot' do
       @screenshot.browser.snap_screenshot(@url_w_uri, @file)
-      File.exist?(@file).should be_true
+      File.exist?(@file).should be true
     end
 
     it "should destroy a singular screenshot" do
       @screenshot.destroy(@url_w_uri)
-      File.exist?(@file).should be_false
+      File.exist?(@file).should be false
     end
   end
 
@@ -80,18 +80,18 @@ describe GreenOnion::Screenshot do
     end
 
     it "should create the paths_hash correctly" do
-      ( (@screenshot.paths_hash[:original].should eq(@file1)) && (@screenshot.paths_hash[:fresh].should eq(@file2)) ).should be_true
+      ( (@screenshot.paths_hash[:original].should eq(@file1)) && (@screenshot.paths_hash[:fresh].should eq(@file2)) ).should be true
     end
 
     it "should snap and save another screenshot if a screenshot already exists" do
       if File.exist?(@file1)
-        File.exist?(@file2).should be_true
+        File.exist?(@file2).should be true
       end
     end
 
     it "should destroy a set of screenshots" do
       @screenshot.destroy(@url_w_uri)
-      ( File.exist?(@file1) && File.exist?(@file2) ).should be_false
+      ( File.exist?(@file1) && File.exist?(@file2) ).should be false
     end
   end
 

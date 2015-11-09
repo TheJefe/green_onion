@@ -32,6 +32,6 @@ describe 'Using Webkit' do
 
   it "should snap and save screenshot w/ Webkit" do
     @screenshot.test_screenshot(@url_w_uri)
-    File.exist?(@file).should be_true
+    File.exist?(@file).should be true
   end
 end

@@ -9,7 +9,7 @@ describe GreenOnion do
   end
 
   describe "Skins" do
-    before(:each) do  
+    before(:each) do
       GreenOnion.configure do |c|
         c.skins_dir = @tmp_path
       end
@@ -20,8 +20,8 @@ describe GreenOnion do
     end
 
     it "should default to 1024x768 browser dimensions" do
-      ( (GreenOnion.configuration.dimensions[:height] == 768) && 
-        (GreenOnion.configuration.dimensions[:width] == 1024) ).should be_true
+      ( (GreenOnion.configuration.dimensions[:height] == 768) &&
+        (GreenOnion.configuration.dimensions[:width] == 1024) ).should be true
     end
 
     it "should set/get custom directory" do
@@ -33,17 +33,17 @@ describe GreenOnion do
         GreenOnion.skin(@url)
       end
       ( (GreenOnion.screenshot.paths_hash[:original] == "#{@tmp_path}/root.png") && 
-        (GreenOnion.screenshot.paths_hash[:fresh] == "#{@tmp_path}/root_fresh.png") ).should be_true
+        (GreenOnion.screenshot.paths_hash[:fresh] == "#{@tmp_path}/root_fresh.png") ).should be true
     end
 
-    it "should measure the percentage of diff between skins" do        
+    it "should measure the percentage of diff between skins" do
       2.times do
         GreenOnion.skin_percentage(@url)
       end
       GreenOnion.compare.percentage_changed.should be > 0
     end
 
-    it "should measure the percentage of diff between skins (even if there is no diff)" do        
+    it "should measure the percentage of diff between skins (even if there is no diff)" do
       2.times do
         GreenOnion.skin_percentage(@url_w_uri)
       end
@@ -57,31 +57,31 @@ describe GreenOnion do
       end
     end
 
-    it "should create visual diff between skins" do      
+    it "should create visual diff between skins" do
       2.times do
         GreenOnion.skin_visual(@url)
       end
       GreenOnion.compare.diffed_image.should eq("#{@tmp_path}/root_diff.png")
     end
 
-    it "should create visual diff between skins (even when there is no change)" do        
+    it "should create visual diff between skins (even when there is no change)" do
       2.times do
         GreenOnion.skin_visual(@url_w_uri)
       end
       GreenOnion.compare.diffed_image.should eq("#{@tmp_path}/fake_uri_diff.png")
     end
 
-    it "should measure the percentage of diff between skins AND create visual diff" do        
+    it "should measure the percentage of diff between skins AND create visual diff" do
       2.times do
         GreenOnion.skin_visual_and_percentage(@url)
       end
       ( (GreenOnion.compare.diffed_image.should eq("#{@tmp_path}/root_diff.png")) &&
-        (GreenOnion.compare.percentage_changed.should be > 0) ).should be_true
+        (GreenOnion.compare.percentage_changed.should be > 0) ).should be true
     end
   end
 
   describe "Skins with custom dimensions" do
-    before(:each) do  
+    before(:each) do
       GreenOnion.configure do |c|
         c.skins_dir = @tmp_path
         c.dimensions = { :width => 1440, :height => 900 }
@@ -93,13 +93,13 @@ describe GreenOnion do
     end
 
     it "should allow custom browser dimensions" do
-      ( (GreenOnion.configuration.dimensions[:height] == 900) && 
-        (GreenOnion.configuration.dimensions[:width] == 1440) ).should be_true
+      ( (GreenOnion.configuration.dimensions[:height] == 900) &&
+        (GreenOnion.configuration.dimensions[:width] == 1440) ).should be true
     end
   end
 
   describe "Skins with custom threshold" do
-    before(:each) do  
+    before(:each) do
       GreenOnion.configure do |c|
         c.skins_dir = @tmp_path
         c.threshold = 1
@@ -124,38 +124,38 @@ describe GreenOnion do
       FileUtils.rm_r(@tmp_path, :force => true)
     end
 
-    it "should allow custom file namespacing" do  
+    it "should allow custom file namespacing" do
       GreenOnion.configure do |c|
         c.skins_dir = @tmp_path
-        c.skin_name = { 
+        c.skin_name = {
           :match => /[\/a-z]/,
           :replace => "-",
           :prefix => "start",
           :root => "first"
         }
       end
-      ( (GreenOnion.configuration.skin_name[:match] == /[\/a-z]/) && 
-        (GreenOnion.configuration.skin_name[:replace] == "-")     && 
-        (GreenOnion.configuration.skin_name[:prefix] == "start")  && 
-        (GreenOnion.configuration.skin_name[:root] == "first")  ).should be_true
+      ( (GreenOnion.configuration.skin_name[:match] == /[\/a-z]/) &&
+        (GreenOnion.configuration.skin_name[:replace] == "-")     &&
+        (GreenOnion.configuration.skin_name[:prefix] == "start")  &&
+        (GreenOnion.configuration.skin_name[:root] == "first")  ).should be true
     end
 
-    it "should allow incomplete setting of skin_name hash" do  
+    it "should allow incomplete setting of skin_name hash" do
       GreenOnion.configure do |c|
         c.skins_dir = @tmp_path
-        c.skin_name = { 
+        c.skin_name = {
           :replace => "o"
         }
       end
-      ( (GreenOnion.configuration.skin_name[:match] == /[\/]/) && 
-        (GreenOnion.configuration.skin_name[:replace] == "o")     && 
-        (GreenOnion.configuration.skin_name[:prefix] == nil)  && 
-        (GreenOnion.configuration.skin_name[:root] == "root")  ).should be_true
+      ( (GreenOnion.configuration.skin_name[:match] == /[\/]/) &&
+        (GreenOnion.configuration.skin_name[:replace] == "o")     &&
+        (GreenOnion.configuration.skin_name[:prefix] == nil)  &&
+        (GreenOnion.configuration.skin_name[:root] == "root")  ).should be true
     end
   end
 
   describe "Errors" do
-    before(:each) do  
+    before(:each) do
       GreenOnion.configure do |c|
         c.skins_dir = @tmp_path
       end
@@ -188,7 +188,7 @@ describe GreenOnion do
 
 
   describe "Skins with custom driver" do
-    before(:each) do  
+    before(:each) do
       GreenOnion.configure do |c|
         c.skins_dir = @tmp_path
         c.driver = "selenium"
