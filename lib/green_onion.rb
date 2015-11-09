@@ -4,7 +4,7 @@ require "green_onion/compare"
 require "green_onion/configuration"
 require "green_onion/errors"
 require "green_onion/browser"
-require "rainbow"
+require 'rainbow/ext/string'
 
 module GreenOnion
   class << self

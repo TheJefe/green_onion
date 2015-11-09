@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "capybara-webkit"
   gem.add_development_dependency "poltergeist"
   
-  gem.add_dependency "capybara", " ~> 1.1"
+  gem.add_dependency "capybara", " ~> 2.5"
   gem.add_dependency "oily_png", "~> 1.0.2"
   gem.add_dependency "rainbow"
   gem.add_dependency "fileutils"
