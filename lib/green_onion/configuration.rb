@@ -6,7 +6,7 @@ module GreenOnion
     def dimensions=(options)
       @dimensions = options
     end
-    
+
     def dimensions
       @dimensions ||= { :height => 768, :width => 1024 }
     end
@@ -41,9 +41,9 @@ module GreenOnion
 
     # Serves as a template for skin_name getter/setter
     def skin_namespace_hash(options = {})
-      { 
-        :match   =>  options[:match] ? options[:match] : /[\/]/, 
-        :replace =>  options[:replace] ? options[:replace] : "_", 
+      {
+        :match   =>  options[:match] ? options[:match] : /[\/]/,
+        :replace =>  options[:replace] ? options[:replace] : "_",
         :prefix  =>  options[:prefix] ? options[:prefix] : nil,
         :root    =>  options[:root] ? options[:root] : "root"
       }

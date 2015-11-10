@@ -18,7 +18,7 @@ describe GreenOnion::Screenshot do
       @screenshot = GreenOnion::Screenshot.new(
         :browser => @browser,
         :dir => @tmp_path,
-        :skin_name => { 
+        :skin_name => {
           :match => /[\/]/,
           :replace => "",
           :prefix => nil,
@@ -61,7 +61,7 @@ describe GreenOnion::Screenshot do
       @screenshot = GreenOnion::Screenshot.new(
         :browser => @browser,
         :dir => @tmp_path,
-        :skin_name => { 
+        :skin_name => {
           :match => /[\/]/,
           :replace => "",
           :prefix => nil,
@@ -105,9 +105,9 @@ describe GreenOnion::Screenshot do
       @screenshot = GreenOnion::Screenshot.new(
         :browser => @browser,
         :dir => @tmp_path,
-        :skin_name => { 
-          :match => /[\/]/, 
-          :replace => "#", 
+        :skin_name => {
+          :match => /[\/]/,
+          :replace => "#",
           :prefix => nil,
           :root => "root"
         }
@@ -121,7 +121,7 @@ describe GreenOnion::Screenshot do
       @screenshot = GreenOnion::Screenshot.new(
         :browser => @browser,
         :dir => @tmp_path,
-        :skin_name => { 
+        :skin_name => {
           :match => /[\/]/,
           :replace => "-",
           :prefix => this_month,
@@ -136,7 +136,7 @@ describe GreenOnion::Screenshot do
       @screenshot = GreenOnion::Screenshot.new(
         :browser => @browser,
         :dir => @tmp_path,
-        :skin_name => { 
+        :skin_name => {
           :match => /[\/]/,
           :replace => "-",
           :prefix => nil,

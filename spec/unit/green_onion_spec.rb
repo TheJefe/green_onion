@@ -32,7 +32,7 @@ describe GreenOnion do
       2.times do
         GreenOnion.skin(@url)
       end
-      ( (GreenOnion.screenshot.paths_hash[:original] == "#{@tmp_path}/root.png") && 
+      ( (GreenOnion.screenshot.paths_hash[:original] == "#{@tmp_path}/root.png") &&
         (GreenOnion.screenshot.paths_hash[:fresh] == "#{@tmp_path}/root_fresh.png") ).should be true
     end
 

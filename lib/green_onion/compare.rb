@@ -28,7 +28,7 @@ module GreenOnion
       @images.first.height.times do |y|
         @images.first.row(y).each_with_index do |pixel, x|
           unless pixel == @images.last[x,y]
-            @diff_index << [x,y] 
+            @diff_index << [x,y]
             pixel_difference_filter(pixel, x, y)
           end
         end
@@ -38,7 +38,7 @@ module GreenOnion
     # Changes the pixel color to be the opposite RGB value
     def pixel_difference_filter(pixel, x, y)
       chans = []
-      [:r, :b, :g].each do |chan| 
+      [:r, :b, :g].each do |chan|
         chans << channel_difference(chan, pixel, x, y)
       end
       @images.last[x,y] = ChunkyPNG::Color.rgb(chans[0], chans[1], chans[2])
@@ -73,7 +73,7 @@ module GreenOnion
       rescue NoMethodError
         puts "Both skins are the same.".color(:yellow)
       end
-      
+
       @images.last.save(@diffed_image)
     end
 

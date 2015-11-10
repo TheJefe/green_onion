@@ -71,7 +71,7 @@ module GreenOnion
     # This is used in skin_percentage to raise error if a set of skins are ok or not
     def threshold_alert(actual, threshold)
       if actual > threshold
-        abort "#{actual - threshold}% above threshold set @ #{threshold}%".color(:red) + 
+        abort "#{actual - threshold}% above threshold set @ #{threshold}%".color(:red) +
         "\npixels changed (%):     #{@compare.percentage_changed}%" +
         "\npixels changed/total:  #{@compare.changed_px}/#{@compare.total_px}"
       else

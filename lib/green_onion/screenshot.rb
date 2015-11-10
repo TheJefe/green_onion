@@ -26,7 +26,7 @@ module GreenOnion
       else
         @shot_path = @paths_hash[:original]
       end
-    end  
+    end
 
     def url_matcher(url)
       url_match = url.match(/^(([^:\/?#]+):)?(\/\/([^\/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/).to_a.compact
@@ -52,7 +52,7 @@ module GreenOnion
 
     def get_path(url)
       url_matcher(url)
-      if @filename.empty? || @filename == '/' 
+      if @filename.empty? || @filename == '/'
         @paths_hash[:original] = "#{@dir}/#{@skin_name[:root]}.png"
       else
         file_namer
@@ -68,7 +68,7 @@ module GreenOnion
       if File.exist?(org)
         FileUtils.rm(org)
         if File.exist?(fresh)
-          FileUtils.rm(fresh) 
+          FileUtils.rm(fresh)
         end
       end
     end

@@ -16,7 +16,7 @@ describe 'Using Poltergeist' do
     @screenshot = GreenOnion::Screenshot.new(
       :browser => @browser,
       :dir => @tmp_path,
-      :skin_name => { 
+      :skin_name => {
         :match => /[\/]/,
         :replace => "_",
         :prefix => nil,
